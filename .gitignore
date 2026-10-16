@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Editores / SO
+.DS_Store
+Thumbs.db
+
+# Arquivos compactados locais
+*.rar
+*.zip

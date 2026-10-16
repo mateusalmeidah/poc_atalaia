@@ -1,0 +1,8 @@
+{
+  "caso_id": "CASO-004",
+  "titulo": "Atualização de horário de funcionamento",
+  "descricao": "Aviso informando o novo horário de funcionamento da biblioteca durante o período de recesso.",
+  "metadados": {
+    "categoria": "comunicado_geral"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "caso_id": "CASO-001",
+  "titulo": "Solicitação de atualização cadastral",
+  "descricao": "O requerente informou o CPF 123.456.789-00 e o e-mail fulano.ficticio@exemplo.test para atualizar seu cadastro.",
+  "metadados": {
+    "origem": "formulario_sintetico"
+  }
+}

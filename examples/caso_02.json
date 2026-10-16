@@ -1,0 +1,8 @@
+{
+  "caso_id": "CASO-002",
+  "titulo": "Publicação de valor de contrato",
+  "descricao": "Pedido de divulgação do valor total do contrato de contratação de serviços de limpeza do órgão.",
+  "metadados": {
+    "categoria": "gasto publico"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "caso_id": "CASO-003",
+  "titulo": "Divulgação de beneficiário de auxílio",
+  "descricao": "Pedido para divulgar o benefício público pago, incluindo nome: Beltrano Ficticio e o CPF 987.654.321-00 do beneficiário.",
+  "metadados": {
+    "categoria": "beneficio publico"
+  }
+}

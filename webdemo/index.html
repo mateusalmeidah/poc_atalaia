@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATALAIA · PoC 0.1 — Motor de apoio à decisão LGPD/LAI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">ATALAIA · UFS — Prova de Conceito 0.1</p>
+      <h1>Motor de apoio à decisão <span>LGPD / LAI</span></h1>
+      <p class="lead">
+        Uma camada de governança <strong>determinística, auditável e
+        testável</strong> que reconhece sinais de dado pessoal e de interesse de
+        transparência e encaminha conflitos para revisão humana — sem jamais
+        tomar decisão jurídica final.
+      </p>
+      <div class="badges">
+        <span class="badge">Sem LLM</span>
+        <span class="badge">Sem APIs externas</span>
+        <span class="badge">Apenas dados fictícios</span>
+        <span class="badge">100% no navegador</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- 1. O QUE É -->
+    <section id="sobre">
+      <h2>1 · O que esta PoC prova</h2>
+      <p>
+        A pergunta de pesquisa: é possível representar, de forma determinística,
+        um fluxo mínimo de governança que reconheça sinais de
+        <strong>dado pessoal</strong> (LGPD) e de <strong>interesse de
+        transparência</strong> (LAI) e encaminhe situações conflitantes para
+        revisão humana?
+      </p>
+      <p class="nota">
+        A contribuição está na <strong>orquestração da decisão e da
+        evidência</strong>, não na sofisticação do classificador. Esta página
+        reproduz, no navegador, exatamente a mesma lógica do pacote Python
+        coberto por 38 testes automatizados.
+      </p>
+    </section>
+
+    <!-- 2. FLUXO -->
+    <section id="fluxo">
+      <h2>2 · O fluxo, etapa por etapa</h2>
+      <p>Cada caso percorre o mesmo caminho. As etapas acendem conforme a análise.</p>
+      <ol class="flow" id="flow">
+        <li data-step="entrada">
+          <span class="num">1</span>
+          <h3>Entrada</h3>
+          <p>Um caso sintético: id, título, descrição e metadados.</p>
+        </li>
+        <li data-step="pii">
+          <span class="num">2</span>
+          <h3>Detecção de PII</h3>
+          <p>Regex para CPF, e-mail, telefone e marcador de nome.</p>
+        </li>
+        <li data-step="lai">
+          <span class="num">3</span>
+          <h3>Detecção de LAI</h3>
+          <p>Taxonomia de palavras-chave de transparência.</p>
+        </li>
+        <li data-step="regra">
+          <span class="num">4</span>
+          <h3>Regra de decisão</h3>
+          <p>Tabela determinística → recomendação de fluxo.</p>
+        </li>
+        <li data-step="escala">
+          <span class="num">5</span>
+          <h3>Escalada humana</h3>
+          <p>Conflito PII + LAI ⇒ sempre escala (fail-safe).</p>
+        </li>
+        <li data-step="govadr">
+          <span class="num">6</span>
+          <h3>GOV-ADR</h3>
+          <p>Evidência em Markdown com decisão humana <em>PENDENTE</em>.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 3. PLAYGROUND -->
+    <section id="playground">
+      <h2>3 · Experimente ao vivo</h2>
+      <p>Escolha um dos casos canônicos ou escreva o seu próprio texto.</p>
+
+      <div class="casos-botoes" id="casos-botoes"></div>
+
+      <div class="playground-grid">
+        <div class="editor">
+          <label for="caso-id">Identificador</label>
+          <input id="caso-id" type="text" value="CASO-LIVRE" />
+          <label for="titulo">Título</label>
+          <input id="titulo" type="text" placeholder="Título do caso" />
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" rows="7"
+            placeholder="Cole aqui o texto do caso..."></textarea>
+          <button id="analisar" class="primario">Analisar caso</button>
+          <p class="dica">
+            Dica: experimente juntar um CPF (ex.: 123.456.789-00) com a palavra
+            “contrato” e veja o motor escalar para humano.
+          </p>
+        </div>
+
+        <div class="resultado" id="resultado" aria-live="polite">
+          <p class="placeholder">O resultado da análise aparece aqui.</p>
+        </div>
+      </div>
+
+      <div class="govadr-bloco" id="govadr-bloco" hidden>
+        <h3>GOV-ADR gerado</h3>
+        <p class="nota">
+          Toda análise pode gerar esta evidência. A decisão humana nasce sempre
+          como <strong>PENDENTE</strong> — o motor não decide por conta própria.
+        </p>
+        <pre id="govadr"></pre>
+      </div>
+    </section>
+
+    <!-- 4. REGRA DE OURO -->
+    <section id="regra-ouro">
+      <h2>4 · A regra de ouro</h2>
+      <div class="tabela-wrap">
+        <table>
+          <thead>
+            <tr><th>Dado pessoal</th><th>Transparência</th><th>Recomendação</th><th>Revisão humana</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>sim</td><td>sim</td><td class="rec escalar">ESCALAR_HUMANO</td><td>obrigatória</td></tr>
+            <tr><td>sim</td><td>não</td><td class="rec pii">REVISAR_DADOS_PESSOAIS</td><td>obrigatória</td></tr>
+            <tr><td>não</td><td>sim</td><td class="rec lai">REVISAR_TRANSPARENCIA</td><td>não</td></tr>
+            <tr><td>não</td><td>não</td><td class="rec neutro">PROSSEGUIR_SEM_TRATAMENTO_ESPECIAL</td><td>não</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">
+        O motor <strong>nunca</strong> produz <code>PUBLICAR</code>,
+        <code>RESTRINGIR</code> ou <code>ANONIMIZAR</code>. Essas são decisões
+        humanas.
+      </p>
+    </section>
+
+    <!-- 5. PARIDADE / CHKs -->
+    <section id="paridade">
+      <h2>5 · Paridade com o motor testado</h2>
+      <p>
+        Os 4 casos abaixo rodam neste navegador e são comparados com o resultado
+        esperado do pacote Python (38 testes verdes). Verde = idêntico.
+      </p>
+      <div id="paridade-grid" class="paridade-grid"></div>
+
+      <h3>Critérios de aceite atendidos</h3>
+      <ul class="chks">
+        <li><strong>CHK-01/02</strong> detecção determinística de PII e LAI</li>
+        <li><strong>CHK-03</strong> conflito ⇒ ESCALAR_HUMANO</li>
+        <li><strong>CHK-04</strong> nunca decide publicar/restringir/anonimizar</li>
+        <li><strong>CHK-05</strong> toda análise traz motivos e regras</li>
+        <li><strong>CHK-06</strong> GOV-ADR com decisão humana PENDENTE</li>
+        <li><strong>CHK-07</strong> apenas dados fictícios</li>
+        <li><strong>CHK-08</strong> suíte verde por um único comando</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        PoC acadêmica · ATALAIA/UFS · motor versão <code>0.1.0</code>. Protótipo
+        de pesquisa — não constitui parecer jurídico nem afirma conformidade
+        legal. Todos os dados exibidos são fictícios.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
