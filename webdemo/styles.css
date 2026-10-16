@@ -194,5 +194,26 @@ td.rec.neutro { color: var(--neutro); }
 .stack-card.fora { border-left: 3px solid var(--escalar); }
 .stack-card.fora h3 { color: var(--escalar); }
 
+/* Roadmap (próximos passos) */
+.roadmap { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 14px; }
+.roadmap li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--brand); border-radius: var(--radius);
+  padding: 16px 18px; position: relative;
+}
+.roadmap li h3 { font-size: 1.05rem; margin: 8px 0 4px; }
+.roadmap li p { margin: 0; color: #d6deee; font-size: .92rem; }
+.roadmap .tag {
+  display: inline-block; font-size: .72rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted);
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 3px 9px; border-radius: 999px;
+}
+.roadmap .tag.destaque {
+  color: #0c1322; background: var(--brand); border-color: var(--brand);
+  font-weight: 700;
+}
+.roadmap li:first-child { border-left-color: var(--brand-2); }
+
 /* Footer */
 footer { padding: 32px 0; color: var(--muted); font-size: .85rem; }

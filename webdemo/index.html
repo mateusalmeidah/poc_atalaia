@@ -211,6 +211,68 @@
         essencial.
       </p>
     </section>
+
+    <!-- 7. PRÓXIMOS PASSOS (PoC 0.2) -->
+    <section id="proximos">
+      <h2>7 · Próximos passos (PoC 0.2)</h2>
+      <p>
+        A PoC 0.1 provou o <strong>fluxo de governança</strong> com um detector
+        mínimo. A próxima etapa testa se a mesma camada de governança sustenta
+        ferramentas mais robustas por baixo — mantendo tudo determinístico e
+        auditável — e fecha o ciclo da decisão humana.
+      </p>
+
+      <ol class="roadmap">
+        <li>
+          <span class="tag destaque">foco principal</span>
+          <h3>Detector profissional sob a camada de governança</h3>
+          <p>
+            Avaliar uma biblioteca madura de PII (ex.: Presidio) como motor de
+            detecção, mantendo a nossa lógica determinística como a camada que
+            decide o encaminhamento. Prova que o valor está na
+            <strong>orquestração</strong>, não no detector.
+          </p>
+        </li>
+        <li>
+          <span class="tag">evidência</span>
+          <h3>Fechar o ciclo da decisão humana</h3>
+          <p>
+            Hoje todo GOV-ADR nasce <em>PENDENTE</em>. A 0.2 registra quando um
+            humano decidiu (aprovou, restringiu etc.), criando uma trilha
+            completa de “quem decidiu o quê e quando”.
+          </p>
+        </li>
+        <li>
+          <span class="tag">detecção</span>
+          <h3>PII mais robusta</h3>
+          <p>
+            Validação de dígito verificador do CPF e novos tipos de dado pessoal
+            (RG, CNPJ, data de nascimento), reduzindo falsos positivos.
+          </p>
+        </li>
+        <li>
+          <span class="tag">configuração</span>
+          <h3>Taxonomia de transparência externa</h3>
+          <p>
+            Mover as palavras-chave de LAI do código para um arquivo de regras,
+            permitindo que especialistas ajustem sem programar.
+          </p>
+        </li>
+        <li>
+          <span class="tag">escala</span>
+          <h3>Relatório agregado de múltiplos casos</h3>
+          <p>
+            Processar lotes e gerar um panorama (quantos escalaram, quantos
+            neutros etc.), além da análise caso a caso.
+          </p>
+        </li>
+      </ol>
+
+      <p class="nota">
+        Princípio mantido em todas as etapas: na dúvida, <strong>escalar para
+        humano</strong> (fail-safe). A máquina acelera e organiza; a pessoa decide.
+      </p>
+    </section>
   </main>
 
   <footer>
