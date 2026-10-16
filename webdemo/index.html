@@ -164,6 +164,53 @@
         <li><strong>CHK-08</strong> suíte verde por um único comando</li>
       </ul>
     </section>
+
+    <!-- 6. STACK E RESTRIÇÕES -->
+    <section id="stack">
+      <h2>6 · Stack e restrições</h2>
+      <p>
+        A simplicidade aqui é um <strong>recurso</strong>, não uma limitação. O
+        motor foi mantido determinístico e sem “caixa-preta” de propósito: quanto
+        menos mágica, mais confiável a evidência e a auditoria.
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-card usamos">
+          <h3>O que usamos</h3>
+          <ul>
+            <li><strong>Python</strong> + biblioteca padrão (<code>re</code>,
+              <code>json</code>, <code>dataclasses</code>, <code>datetime</code>,
+              <code>pathlib</code>) — o motor, núcleo da PoC.</li>
+            <li><strong>pytest</strong> — única dependência, e só para rodar os
+              38 testes; não faz parte do produto.</li>
+            <li><strong>HTML, CSS e JavaScript puro</strong> — esta vitrine, sem
+              nenhum framework de front-end.</li>
+            <li><strong>Git / GitHub + GitHub Pages</strong> — versionamento e
+              hospedagem do link público.</li>
+          </ul>
+        </div>
+
+        <div class="stack-card fora">
+          <h3>O que NÃO usamos (de propósito)</h3>
+          <ul>
+            <li><strong>Nenhum LLM / IA</strong> — nada de modelos de linguagem.</li>
+            <li><strong>Nenhuma API externa ou nuvem</strong> no motor.</li>
+            <li><strong>Nenhum banco de dados.</strong></li>
+            <li><strong>Nenhuma biblioteca de PII/anonimização</strong>
+              (Presidio, ARX, AMNESIA, scrubadub).</li>
+            <li><strong>Nenhum dado real</strong> — apenas fictícios.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="nota">
+        Por quê? A PoC prova o <strong>fluxo de governança e evidência</strong> de
+        forma determinística: a mesma entrada produz sempre o mesmo resultado. Um
+        LLM ou serviço externo poderia variar a resposta — o oposto do que uma
+        trilha de auditoria precisa. No núcleo, usamos só a linguagem e o
+        essencial.
+      </p>
+    </section>
   </main>
 
   <footer>

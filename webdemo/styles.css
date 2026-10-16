@@ -177,5 +177,22 @@ td.rec.neutro { color: var(--neutro); }
 .chks { list-style: none; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .chks li { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--ok); border-radius: 10px; padding: 10px 12px; font-size: .9rem; }
 
+/* Stack e restrições */
+.stack-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0;
+}
+@media (max-width: 820px) { .stack-grid { grid-template-columns: 1fr; } }
+.stack-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+}
+.stack-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.stack-card ul { margin: 0; padding-left: 18px; }
+.stack-card li { margin: 7px 0; font-size: .92rem; color: #d6deee; }
+.stack-card.usamos { border-left: 3px solid var(--ok); }
+.stack-card.usamos h3 { color: var(--ok); }
+.stack-card.fora { border-left: 3px solid var(--escalar); }
+.stack-card.fora h3 { color: var(--escalar); }
+
 /* Footer */
 footer { padding: 32px 0; color: var(--muted); font-size: .85rem; }
